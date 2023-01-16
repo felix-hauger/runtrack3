@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<head>
-    <script src="script.js"></script>
-</head>
+<html>
+    <head>
+        <script src="script.js"></script>
+    </head>
 </html>
