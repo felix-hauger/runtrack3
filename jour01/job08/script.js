@@ -1,12 +1,16 @@
 let isPrimeNumber = function(number) {
-    // if the square root is divisible no need to go further
-    let sqrt = Math.floor(Math.sqrt(number));
-    for (i = 2; i <= sqrt; i++) {
-        if (sqrt % i == 0) {
-            return false;
+    if (number == 1) {
+        return false;
+    } else {
+        // if the number is divisible by dividers up to number's square root no need to go further
+        let sqrt = Math.floor(Math.sqrt(number));
+        for (i = 2; i <= sqrt; i++) {
+            if (number % i == 0) {
+                return false;
+            }
         }
+        return true;
     }
-    return true;
 }
 
 let addPrimeNumbers = function(number1, number2) {
@@ -17,9 +21,10 @@ let addPrimeNumbers = function(number1, number2) {
     }
 }
 
-// console.log(Math.sqrt(121));
-console.log(isPrimeNumber(121));
-console.log(addPrimeNumbers(3, 7));
+
+console.log(addPrimeNumbers(1, 7));
+console.log(addPrimeNumbers(113, 3));
+
 
 // let sqrt = Math.floor(Math.sqrt(121));
 // for (i = 2; i <= sqrt; i++) {
