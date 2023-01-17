@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
                       createArticle = document.createElement('article'),
                       citation = "L'important n'est pas la chute, mais l'atterrissage.";
 
-                      createArticle.textContent = citation;
+                createArticle.textContent = citation;
                 body.append(createArticle);
             }
         }
