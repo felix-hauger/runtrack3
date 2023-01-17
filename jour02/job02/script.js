@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
           button = document.querySelector('#button'),
           article = document.createElement('article'),
           citation = "L'important n'est pas la chute, mais l'atterrissage.";
-    
+
     article.textContent = citation;
 
     button.addEventListener('click', () => {
@@ -15,6 +15,4 @@ document.addEventListener('DOMContentLoaded', () => {
             body.append(article);
         }
     });
-
-
 });
