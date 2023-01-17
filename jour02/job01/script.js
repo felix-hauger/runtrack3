@@ -1,8 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const button = document.querySelector('#button'),
-          citation = document.querySelector('#citation');
+          citation = function () {
+              const myCitation = document.querySelector('#citation');
+              console.log(myCitation.textContent);
+
+          }
     
-    button.addEventListener('click', () => {
-        console.log(citation.textContent);
-    });
+    button.addEventListener('click', citation);
 });

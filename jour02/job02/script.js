@@ -1,18 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const body = document.querySelector('body'),
-          button = document.querySelector('#button'),
-          article = document.createElement('article'),
-          citation = "L'important n'est pas la chute, mais l'atterrissage.";
+    const button = document.querySelector('#button'),
+        showhide = function() {
+            const body = document.querySelector('body'),
+                  article = document.createElement('article'),
+                  citation = "L'important n'est pas la chute, mais l'atterrissage.";
+                  createdArticle = document.querySelector('article');
 
-    article.textContent = citation;
+            article.textContent = citation;
 
-    button.addEventListener('click', () => {
-        let createdArticle = document.querySelector('article');
-        // if article exists !! convert in boolean true (the 1st ! convert to false & the second convert to true)
-        if (!!createdArticle) {
-            createdArticle.remove();
-        } else {
-            body.append(article);
+            // if article exists !! convert in boolean true (the 1st ! convert it to false & the 2nd ! convert it to true)
+            if (!!createdArticle) {
+                createdArticle.remove();
+            } else {
+                body.append(article);
+            }
         }
-    });
+
+    button.addEventListener('click', showhide);
 });
