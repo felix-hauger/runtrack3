@@ -44,22 +44,25 @@ let isWorkingDay = function (date) {
             'octobre',
             'novembre',
             'décembre'
-        ];
+        ],
+
+        // human readable date to display
+        humanDate = weekDaysFr[weekDay] + ' ' + day + ' ' + monthListFr[month] + ' ' + year;
+
 
     for (let i = 0; i < nonWorkingDays.length; i++) {
-        console.log(nonWorkingDays[i], formattedDate);
         if (formattedDate == nonWorkingDays[i]) {
-            return 'Le ' + weekDaysFr[weekDay] + ' ' + day + ' ' + monthListFr[month] + ' ' + year + ' est un jour férié';
+            return 'Le ' + humanDate + ' est un jour férié';
         }
     }
     
     if (weekDay >= 5) {
-        return 'Non, ' + weekDaysFr[weekDay] + ' ' + day + ' ' + monthListFr[month] + ' ' + year + ' est un week-end';
+        return 'Non, ' + humanDate + ' est un week-end';
     } else {
-        return 'Oui, ' + weekDaysFr[weekDay] + ' ' + day + ' ' + monthListFr[month] + ' ' + year + ' est un jour travaillé';
+        return 'Oui, ' + humanDate + ' est un jour travaillé';
     }
 }
 
-let myDate = new Date(2022, 10, 13);
+let myDate = new Date(2022, 10, 11);
 
 console.log(isWorkingDay(myDate));
