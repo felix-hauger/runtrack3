@@ -29,7 +29,6 @@ const sort = function(numbers, order = 'asc') {
         }
     }
 
-
     return numbers;
 }
 
