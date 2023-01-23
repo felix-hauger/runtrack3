@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fetch('expression.txt')
                 .then((response) => {
                     console.log(response);
-                    // if the request is fetched return a text, can also return a blob for file non readable by js, like an image
+                    // if the request is fetched return a text, can also return a blob for a file non readable by js, like an image
                     if (response.ok) {
                         return response.text();
                     }
