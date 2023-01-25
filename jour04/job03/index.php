@@ -27,8 +27,8 @@
             <option value="Ice">Glace</option>
             <option value="Bug">Insecte</option>
             <option value="Normal">Normal</option>
-            <option value="grass">Plante</option>
-            <option value="poison">Poison</option>
+            <option value="Grass">Plante</option>
+            <option value="Poison">Poison</option>
             <option value="Psychic">Psy</option>
             <option value="Rock">Roche</option>
             <option value="Ground">Sol</option>
