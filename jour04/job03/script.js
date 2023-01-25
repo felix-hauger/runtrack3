@@ -25,38 +25,51 @@ document.addEventListener('DOMContentLoaded', () => {
                 // console.log(filters);
                 // console.log(filters.id);
                 // console.log(json[filters.id - 1].name.french);
-                for (const filter in filters) {
-                    if (Object.hasOwnProperty.call(filters, filter)) {
-                        const element = filters[filter];
-                        console.log(typeof element);
+                for (const f in filters) {
+                    if (Object.hasOwnProperty.call(filters, f)) {
+                        const filter = filters[f];
+                        console.log(typeof filter);
                     }
                 }
+
+                const filteredList = [];
 
                 for (let i = 0; i < json.length; i++) {
                     // console.log(Object.entries(json[i]));
                     // console.log(json[i]);
                     // console.log(filters.id - i)
+                    // console.log(json[i].id, filters.id);
+                    // console.log(json[i].name, filters.name);
+                    // console.log(json[i].type, filters.type);
 
-                    if (filters.id != '' && i == filters.id - 1) {
-                        console.log(json[i].name.french);
-                        let entry = document.createElement('tr'),
-                            id = document.createElement('td'),
-                            name;
+                    // FILTER AND
 
-                    }
-                    if (filters.type != '' && Object.values(json[i].type).includes(filters.type)) {
-                        // console.log()
-                        console.log(json[i].name.french);
-                        let entry = document.createElement('tr'),
-                            id = document.createElement('td'),
-                            name;
+                    let idOk = filters.id == '' || i == filters.id - 1,
+                        nameOk = filters.name == '' || Object.values(json[i].name).includes(filters.name),
+                        typeOk = filters.type == '' || json[i].type.includes(filters.type);
 
-                    }
-                    if (filters.name != '' && Object.values(json[i].name).includes(filters.name)) {
+                    if (idOk && nameOk && typeOk) {
                         console.log(json[i].name.french);
                     }
-                        
-                    
+
+                    // console.log(idOk, nameOk, typeOk);
+
+                    // FILTER OR
+
+                    // if (filters.id != '' && i == filters.id - 1) {
+                    //     console.log(json[i].name.french);
+                    // }
+
+                    // if (filters.type != '' && Object.values(json[i].type).includes(filters.type)) {
+                    //     // console.log()
+                    //     console.log(json[i].name.french);
+                    //     let entry = document.createElement('tr'),
+                    //         id = document.createElement('td'),
+                    //         name;
+                    // }
+                    // if (filters.name != '' && json[i].type.includes(filters.type)) {
+                    //     console.log(json[i].name.french);
+                    // }
                 }
             });
     }
