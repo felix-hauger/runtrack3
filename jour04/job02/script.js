@@ -6,5 +6,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     console.log(jsonValueKey(jsonString, 'name'));
-    
 });
