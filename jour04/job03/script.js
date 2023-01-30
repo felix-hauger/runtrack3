@@ -44,11 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     // FILTER AND
 
-                    let idOk = filters.id == '' || i == filters.id - 1,
-                        nameOk = filters.name == '' || Object.values(json[i].name).includes(filters.name),
-                        typeOk = filters.type == '' || json[i].type.includes(filters.type);
+                    let idFiltered = filters.id == '' || i == filters.id - 1,
+                        nameFiltered = filters.name == '' || Object.values(json[i].name).includes(filters.name),
+                        typeFiltered = filters.type == '' || json[i].type.includes(filters.type);
 
-                    if (idOk && nameOk && typeOk) {
+                    if (idFiltered && nameFiltered && typeFiltered) {
                         console.log(json[i].name.french);
                     }
 
