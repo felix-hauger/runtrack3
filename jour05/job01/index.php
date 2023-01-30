@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job 01</title>
-    <script src="script.js"></script>
+    <script defer src="script.js"></script>
 </head>
 <body>
     <header>
@@ -18,5 +18,9 @@
             <button id="register">Inscription</button>
         </nav>
     </header>
+    <main>
+        <div id="form-container"></div>
+
+    </main>
 </body>
 </html>
