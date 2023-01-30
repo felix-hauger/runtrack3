@@ -89,9 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 // tableBody.innerHTML = filteredList;
                 table.append(createTbody);
-
-
-
             });
     }
 
