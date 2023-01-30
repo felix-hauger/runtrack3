@@ -1,43 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
     const filterButton = document.querySelector('#filter');
-    const filter = function() {
-        let id = document.querySelector('#id').value,
-            name = document.querySelector('#name').value,
-            type = document.querySelector('#type').value;
+    const filter = function () {
         let filters = {
             "id": document.querySelector('#id').value,
             "name": document.querySelector('#name').value,
             "type": document.querySelector('#type').value
         };
         const tbody = document.querySelector('#pkmn-list tbody');
+
+        // remove tbody to append a new one
         if (!!tbody) {
             tbody.remove();
         }
-        // console.log(id, name, type);
+
+        // get a response
         fetch('pokemon.json')
+            // use result with anonymous function
             .then((response) => {
-                // console.log(response);
-                // console.log(id);
+                // convert response to json format
                 return response.json();
             })
             .then((json) => {
-                // console.log(json);
-                // if (id >= 1) {
-                //     console.log(json[filters.id-1].name.french);
-                //     console.log(filters.id);
+                // for (const f in filters) {
+                //     if (Object.hasOwnProperty.call(filters, f)) {
+                //         const filter = filters[f];
+                //         console.log(typeof filter);
+                //     }
                 // }
-                // console.log(filters);
-                // console.log(filters.id);
-                // console.log(json[filters.id - 1].name.french);
-                for (const f in filters) {
-                    if (Object.hasOwnProperty.call(filters, f)) {
-                        const filter = filters[f];
-                        console.log(typeof filter);
-                    }
-                }
                 const table = document.querySelector('#pkmn-list'),
-                      createTbody = document.createElement('tbody');
-                let filteredList = [];
+                    createTbody = document.createElement('tbody');
 
                 for (let i = 0; i < json.length; i++) {
 
@@ -48,8 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         typeFiltered = filters.type == '' || json[i].type.includes(filters.type);
 
                     if (idFiltered && nameFiltered && typeFiltered) {
-                        // console.log(json[i].name.french);
-                        // filteredList.push(json[i]);
                         const createTr = document.createElement('tr'),
                             stats = {
                                 "id": json[i].id,
@@ -62,16 +51,15 @@ document.addEventListener('DOMContentLoaded', () => {
                                 "spAttack": json[i].base['Sp. Attack'],
                                 "spDefense": json[i].base['Sp. Defense'],
                                 "speed": json[i].base.Speed,
-                        };
+                            };
 
                         console.log(json[i].type[1]);
-                        
+
                         for (const s in stats) {
                             if (Object.hasOwnProperty.call(stats, s)) {
                                 // const stat = stats[s];
                                 const createTd = document.createElement('td');
                                 createTd.innerHTML = stats[s];
-                                // filteredList.push(td);
                                 createTr.append(createTd);
                             }
                         }
