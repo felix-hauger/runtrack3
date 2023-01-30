@@ -37,5 +37,19 @@
         </select>
         <input type="button" id="filter" value="filtrer">
     </form>
+    <table id="pkmn-list" >
+        <thead>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Type</th>
+            <th>PV</th>
+            <th>ATQ</th>
+            <th>DEF</th>
+            <th>ATQ SP</th>
+            <th>DEF SP</th>
+            <th>VIT</th>
+        </thead>
+        <tbody></tbody>
+    </table>
 </body>
 </html>

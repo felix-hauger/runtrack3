@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
             "name": document.querySelector('#name').value,
             "type": document.querySelector('#type').value
         };
+        const tbody = document.querySelector('#pkmn-list tbody');
+        if (!!tbody) {
+            tbody.remove();
+        }
         // console.log(id, name, type);
         fetch('pokemon.json')
             .then((response) => {
@@ -31,16 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         console.log(typeof filter);
                     }
                 }
-
-                const filteredList = [];
+                const table = document.querySelector('#pkmn-list'),
+                      createTbody = document.createElement('tbody');
+                let filteredList = [];
 
                 for (let i = 0; i < json.length; i++) {
-                    // console.log(Object.entries(json[i]));
-                    // console.log(json[i]);
-                    // console.log(filters.id - i)
-                    // console.log(json[i].id, filters.id);
-                    // console.log(json[i].name, filters.name);
-                    // console.log(json[i].type, filters.type);
 
                     // FILTER AND
 
@@ -49,10 +48,39 @@ document.addEventListener('DOMContentLoaded', () => {
                         typeFiltered = filters.type == '' || json[i].type.includes(filters.type);
 
                     if (idFiltered && nameFiltered && typeFiltered) {
-                        console.log(json[i].name.french);
+                        // console.log(json[i].name.french);
+                        // filteredList.push(json[i]);
+                        const createTr = document.createElement('tr'),
+                            stats = {
+                                "id": json[i].id,
+                                "name": json[i].name.french,
+                                // test if there is a second type
+                                "type": typeof json[i].type[1] != 'undefined' ? json[i].type[0] + ', ' + json[i].type[1] : json[i].type[0],
+                                "hp": json[i].base.HP,
+                                "attack": json[i].base.Attack,
+                                "defense": json[i].base.Defense,
+                                "spAttack": json[i].base['Sp. Attack'],
+                                "spDefense": json[i].base['Sp. Defense'],
+                                "speed": json[i].base.Speed,
+                        };
+
+                        console.log(json[i].type[1]);
+                        
+                        for (const s in stats) {
+                            if (Object.hasOwnProperty.call(stats, s)) {
+                                // const stat = stats[s];
+                                const createTd = document.createElement('td');
+                                createTd.innerHTML = stats[s];
+                                // filteredList.push(td);
+                                createTr.append(createTd);
+                            }
+                        }
+                        createTbody.append(createTr);
+
                     }
 
-                    // console.log(idOk, nameOk, typeOk);
+                    // console.log(filteredList);
+
 
                     // FILTER OR
 
@@ -71,6 +99,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     //     console.log(json[i].name.french);
                     // }
                 }
+                // tableBody.innerHTML = filteredList;
+                table.append(createTbody);
+
+
+
             });
     }
 
