@@ -32,6 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // if all inputs match the count will be equal to array size (10)
         if (sessionStorage.getItem('count') == 10) {
             console.log('KOMONEY');
+            const body = document.querySelector('body'),
+                myTitle = document.createElement('h1');
+            myTitle.innerHTML = 'Mon beau titre';
+            body.append(myTitle);
             document.querySelector('*').style = 'background-color: #336699; color: white;';
         }
     }

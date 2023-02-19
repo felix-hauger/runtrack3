@@ -9,8 +9,6 @@
 </head>
     
 <body>
-    <h1>Mon beau titre</h1>
-    <p id="keylogger"></p>
 </body>
 
 </html>
